@@ -139,7 +139,7 @@ MAVZU:lambda, map va filter funktsiyalari
 # print(mevalar_5)
 
 # # Quyida bosh harfi a oxirgi harfo r bilan tugaydigan mevalarni ajratib alohid aro'yhatga joylaymiz
-# mevalar = ['olma','anor','anjir','shaftoli',"o'rik","tarvuz","qovun","banan"]
-# mevalar2 = list(filter(lambda meva:(meva.startswith('a') and meva.endswith('r')), mevalar))
-# print(mevalar2)
+mevalar = ['olma','anor','anjir','shaftoli',"o'rik","tarvuz","qovun","banan"]
+mevalar2 = list(filter(lambda meva:(meva.startswith('a') and meva.endswith('r')), mevalar))
+print(mevalar2)
 
