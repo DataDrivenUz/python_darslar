@@ -171,18 +171,58 @@ Mavzu:Obyekt va klaslar
 # =============================================================================
 
 
-# Pythonda hechqanday vazifani bajarmaydigan pass operatori mavjud bo'lib bu operator klas ichidagi metod badani bo'sh bo'lganda ishlatiladi
-# Masalan
-class User:#User nomli klass yaratib olayapmiz
-    def __init__(self, name, usrename, email):#klasning hususiyatlarini kiritib olayapmiz
-        self.ism = name # Uzatilgan argumentni klassning xususiyati bilan bog'layapmiz
-        self.username = usrename
-        self.elektron_pochta = email
-    
-    def discrppt(self):
-        pass
-    
-    def username(self):
-        pass
+# =============================================================================
+# # Pythonda hechqanday vazifani bajarmaydigan pass operatori mavjud bo'lib bu operator klas ichidagi metod badani bo'sh bo'lganda ishlatiladi
+# # Masalan
+# class User:#User nomli klass yaratib olayapmiz
+#     def __init__(self, name, usrename, email):#klasning hususiyatlarini kiritib olayapmiz
+#         self.ism = name # Uzatilgan argumentni klassning xususiyati bilan bog'layapmiz
+#         self.username = usrename
+#         self.elektron_pochta = email
+#     
+#     def discrppt(self):
+#         pass
+#     
+#     def username(self):
+#         pass
+# 
+# # Yuqorida discrppt(self) va username(self) metodlarini badani hali tayyor emas bo'shliqni to'ldirish uchun esa pass operatoridan foydalandik
+# =============================================================================
 
-# Yuqorida discrppt(self) va username(self) metodlarini badani hali tayyor emas bo'shliqni to'ldirish uchun esa pass operatoridan foydalandik
+
+
+# Amaliyot
+# Web sahifangiz uchun foydalanuvchi (user) klassini tuzing. Klassning xususiyatlari sifatida odatda ijtimoiy tarmoqlar talab qiladigan ma'lumotlarni kiriting (ism, foydalanuvchi ismi, email, va hokazo)
+class User:#User nomli klas yaratilayapdi
+   def __init__(self, ism, familiya, foydalanuvchi_ismi, email):
+       """User klasining xususiyatlari"""
+       self.ismi = ism
+       self.familiyasi = familiya
+       self.login = foydalanuvchi_ismi
+       self.email = email
+       
+   def get_ism(self):
+        """userning ismini qaytaradi"""
+        return self.ismi
+    
+   def get_familya(self):
+        """userning familiyasini qaytaradi"""
+        return self.familiyasi
+    
+   def get_login(self):
+       """userning loginini qaytaradi"""
+       return self.login
+   
+   def get_email(self):
+       """userning emailini qaytaradi"""
+       return self.email
+   
+   def get_info(self):
+       """user haqida to'liq ma'lumotni qaytaradi"""
+       return f"Foydalanuvchi: {self.ismi} {self.familiyasi};\nLogini: {self.login};\ne-maili: {self.email}"
+   
+foydalanuvchi = User("Faxriddin", "Mamadiyev", "Faxriddin1995", "faxriddin19951021@gmail.com")
+print(foydalanuvchi.get_info())
+   
+    
+        
