@@ -38,16 +38,83 @@ MAVZU:XATOLAR BILAN ISHLASH
 # =============================================================================
 
 
+# =============================================================================
 # try-except-else
 # yuqoridagi misolimizda try operatorining badanida yosh = int(yosh) va print(f"Siz {2025-yosh} yilda tug'olgan ekansiz") kodlarini kiritayapmiz
 # Aslida bu usul xato. To'g'ri kod try operatorini ichiga yosh = int(yosh) kodini kiritishimiz kerak
 # except operatorini ichida esa try ni ichida kiritilgan kodda xatolik chiqanda bajariladigan kod kiritishimiz kerak
 # else operatorini ichida esa try operatori ichidagi kodda xatolik chiqmaganda bajariladigan ifoda kiritiladi
 # Yani:
-yosh = input("Yoshingizni kiriting: ")
+# yosh = input("Yoshingizni kiriting: ")
+# try:
+#     yosh = int(yosh)
+# except ValueError: #Bu misolimizda qiymat xato kiritilishi oldini olish uchun ValueError dan foydalanayapmiz
+#     print("Siz butun son kiritmadingiz.")
+# else:
+#     print(f"Siz {2025-yosh} da tug'ilgan ekansi.")
+# =============================================================================
+
+
+# =============================================================================
+# ZeroDivisionError
+# Bazi arfimetik amallarda 0 ga bo'lish xatoligi yuzaga kelishi mumkun
+# Aynan shu xatolikni oldini olish uchun ZeroDivisionError dan foydalanamiz
+# x,y = 10,5
+# try:
+#     x/(y-5)
+# except ZeroDivisionError:
+#     print("0 ga bo'lish mumkun emas")
+# 
+# Yuqoridagi misolimizda x va y ga qiymatlar berilayapdi arfimetik amalda esa x ya'ni 10 0 ga bo'linayapdi. Bu esa mumkun emas
+# Xatolikni oldini olish uchun try-except va ZeroDivisionError dan foydalandik
+# Xatolik chiqqan taqdirda ham kodimiz to'xtab qolmasdan keyingi kodga o'tib ketadi
+# =============================================================================
+
+
+
+# =============================================================================
+# IndexError 
+# Bu xatolik odatda ro'yxatda mavjud bo'lmagan elementga murojat qilganimizda chiqadi
+# Masalan
+# talabalar = ['Olim', 'Vali', 'Sobir', 'Behruz', 'Sodiq']
+# try:
+#     print(talabalar[8])
+# except IndexError:
+#     print(f"Ro'yhatda {len(talabalar)} ta talaba bor")
+# 
+# Yuqoridagi misolimizda 5 ta elementdan iborat talabalar ro'yhatini yaratib oldik
+# Bu ro'yhatni ichidan 7-indexli talabani consolga chiqarmoqchimiz. Lekin ro'yxatda 5 ta talaba bor
+# Xatolik chiqqanda kodimiz to'xtab qolmasligi uchun kidimizni try-except IndexError operatorlari badaniga kiritib qo'ydik
+# =============================================================================
+
+
+# =============================================================================
+# KeyError
+# Bu turdagi xatolik lug'atda bavjud bo'lmagan kalitga burojat qilganimizda kelib chiqadi
+# Masalan
+# user = {"username":"sariqdev",
+#         "status":"admin",
+#         "email":"admin@sariq.dev",
+#         "phone":"99897123456"}
+# # user nomli lug'at yaratib olayapmiz
+# key = 'tel' #key o'zgaruvchisiga tel qiymatini yuklayapmiz
+# try:
+#     print(f"Foydalanuvchi: {user[key]}") #user lug'atini ichidan key kalit so'zini qiymatini konsolga chiqarmoqchimiz
+# except KeyError: #lug'atda key kaliti mavjud bo'lmaganligi uchun KeyError dan foydalandik
+#     print(f"Lug'atda {key} kaliti mavjud emas") #Xatolik chiqqanda consolga chiqadigan matin
+# =============================================================================
+
+
+# Bazi hollarda turli xil hatolarni ushlashga to'g'ri kelishi mumkun
+# Bunday hollarda except operatorini bir necha marta ishlatamiz
+# masalan
+n = input("Butun son kiriting: ")#Foydalanuvchidan butun son kiritishini so'rayapmiz
 try:
-    yosh = int(yosh)
-except:
-    print("Siz butun son kiritmadingiz.")
+    n = int(n)
+    x = 20/n
+except ValueError:#Agar foydalanuvchi butun son kiritmasa
+    print("Siz butun son kiritmadingiz!")
+except ZeroDivisionError:#Agar foydalanuvchi 0 kiritsa
+    print("0 ga bo'lish mumkun emas!")
 else:
-    print(f"Siz {2025-yosh} da tug'ilgan ekansi.")
+    print(f"x = {x}")
